@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>VS Code Hand AR HUD</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Header VS Code -->
+  <div class="vscode-header">
+    <div class="tabs-bar">
+      <div class="tab active"><span class="tab-icon">JS</span> tangan.js <span class="close-dot">×</span></div>
+      <div class="tab"><span class="tab-icon json">{}</span> kantin.json</div>
+      <div class="tab"><span class="tab-icon md">M↓</span> skripsi_revisi.md</div>
+    </div>
+  </div>
+
+  <!-- Kontrol Mengambang HP: Ganti Kamera & Rekam Video -->
+  <div class="floating-controls">
+    <button id="btn-toggle-cam" class="hud-btn">
+      <span>🔄</span> <span id="cam-mode-text">Kamera: Belakang</span>
+    </button>
+    <button id="btn-record" class="hud-btn rec-btn" title="Rekam Layar">
+      <span class="rec-dot"></span> <span id="rec-text">REC</span>
+    </button>
+  </div>
+
+  <canvas id="output-canvas"></canvas>
+  <video id="webcam" playsinline style="display: none;"></video>
+
+  <!-- Status Bar Bawah VS Code -->
+  <div class="vscode-statusbar">
+    <div class="status-left">
+      <span class="status-pill">⚡ Git: main*</span>
+      <span class="status-item code-call">tangan.track()</span>
+    </div>
+    <div class="status-right">
+      <span class="status-item">UTF-8</span>
+      <span class="status-item">JavaScript</span>
+    </div>
+  </div>
+
+  <!-- Layar Mulai -->
+  <div id="start-overlay">
+    <button id="btn-start">Aktifkan Kamera AR</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

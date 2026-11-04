@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #181818;
+  font-family: 'Consolas', 'Fira Code', 'Courier New', monospace;
+  user-select: none;
+}
+
+/* Header Tab */
+.vscode-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 38px;
+  background-color: #252526;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.tabs-bar {
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+}
+
+.tab {
+  height: 100%;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #969696;
+  background-color: #2d2d2d;
+  border-right: 1px solid #1e1e1e;
+  white-space: nowrap;
+}
+
+.tab.active {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border-top: 2px solid #007acc;
+}
+
+.tab-icon { font-weight: bold; font-size: 11px; color: #f1e05a; }
+.tab-icon.json { color: #cbcb41; }
+.tab-icon.md { color: #519aba; }
+.close-dot { font-size: 16px; margin-left: 4px; color: #888; }
+
+/* Kontrol Mengambang (Camera Switch & REC Button) */
+.floating-controls {
+  position: absolute;
+  top: 48px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+  z-index: 25;
+}
+
+.hud-btn {
+  background: rgba(30, 30, 30, 0.88);
+  color: #00e5ff;
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: bold;
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.rec-btn {
+  color: #ff5252;
+  border-color: rgba(255, 82, 82, 0.5);
+}
+
+.rec-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ff5252;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Animasi Tombol saat Merekam */
+.rec-btn.recording .rec-dot {
+  background-color: #ff1744;
+  animation: pulse-red 1s infinite alternate;
+}
+
+@keyframes pulse-red {
+  from { transform: scale(0.9); opacity: 0.5; }
+  to { transform: scale(1.3); opacity: 1; }
+}
+
+/* Kanvas Utama */
+#output-canvas {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 62px);
+  z-index: 1;
+}
+
+/* Status Bar Bawah */
+.vscode-statusbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 24px;
+  background-color: #007acc;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 11px;
+  z-index: 10;
+}
+
+.status-left, .status-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-pill {
+  background-color: #16825d;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+/* Layar Mulai */
+#start-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(18, 18, 18, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+#btn-start {
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #0e639c;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 122, 204, 0.5);
+  font-family: inherit;
+}
